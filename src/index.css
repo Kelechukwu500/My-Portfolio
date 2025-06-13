@@ -1,0 +1,6 @@
+@import url("https://fonts.cdnfonts.com/css/signerica-fat");
+@import "tailwindcss";
+
+.logo {
+  font-family: "Signerica Fat", sans-serif;
+}
