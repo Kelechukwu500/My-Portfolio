@@ -3,6 +3,19 @@ import React from "react";
 
 const projects = [
   {
+    name: "True Weather",
+    description:
+      "A dynamic weather forecasting app using APIs with detailed forecast and radar view.",
+    link: "https://weatherappdis.onrender.com",
+  },
+
+  {
+    name: "Apple-Store",
+    description:
+      "A responsive e-commerce website mimicking the Apple Store with product listings and cart functionality.",
+    link: "https://apple-store-egs0.onrender.com",
+  },
+  {
     name: "Fit Tracker",
     description:
       "A fitness tracking web app that helps you monitor workouts, calories, and goals.",
@@ -12,23 +25,15 @@ const projects = [
     name: "Props Mastery",
     description:
       "A React project exploring props and reusable components with practical examples.",
-    link: "https://props-7ytl88136-kelechukwu-akus-projects.vercel.app",
-  },
-  {
-    name: "True Weather",
-    description:
-      "A dynamic weather forecasting app using APIs with detailed forecast and radar view.",
-    link: "https://true-weather-g35ppp0lk-kelechukwu-akus-projects.vercel.app",
+    link: "https://props-4r3u.onrender.com",
   },
 ];
 
 const Projects = () => {
   return (
     <div className="w-full py-16 px-4 sm:px-8 bg-gradient-to-r from-[#232526] to-[#3e9d26]">
-      <h1 className="text-4xl font-bold text-center text-[#3e9d26]">
-        My Projects
-      </h1>
-      <p className="mt-4 mb-10 text-lg text-center">
+      <h1 className="text-4xl font-bold text-center text-white">My Projects</h1>
+      <p className="mt-4 mb-10 text-lg text-center text-white">
         Explore some of the projects I've built.
       </p>
 
