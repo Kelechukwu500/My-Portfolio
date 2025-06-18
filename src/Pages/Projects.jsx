@@ -19,7 +19,7 @@ const projects = [
     name: "Fit Tracker",
     description:
       "A fitness tracking web app that helps you monitor workouts, calories, and goals.",
-    link: "https://fit-tracker-lbx17a3wr-kelechukwu-akus-projects.vercel.app",
+    link: "https://fittracker-3ykk.onrender.com",
   },
   {
     name: "Props Mastery",
