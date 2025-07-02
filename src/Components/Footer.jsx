@@ -23,7 +23,7 @@ const Footer = () => {
         {/* Center: Copyright */}
         <div className="text-center mb-4 md:mb-0">
           <span className="block text-sm font-medium">
-            © 2025. All Rights Reserved. Built by Kelechukwu Ifeanyichukwu Aku
+            © 2025. All Rights Reserved. Created by Kaycee Tech. 
           </span>
         </div>
 

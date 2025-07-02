@@ -27,6 +27,13 @@ const projects = [
       "A React project exploring props and reusable components with practical examples.",
     link: "https://props-4r3u.onrender.com",
   },
+  {
+    name: "Parker Engineering",
+    description:
+      "A comprehensive engineering solutions website showcasing services, projects, and contact information.",
+    link: "https://parkersen-group.onrender.com",
+  },
+  
 ];
 
 const Projects = () => {
