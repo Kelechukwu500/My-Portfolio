@@ -8,7 +8,6 @@ const projects = [
       "A dynamic weather forecasting app using APIs with detailed forecast and radar view.",
     link: "https://weatherappdis.onrender.com",
   },
-
   {
     name: "Apple-Store",
     description:
@@ -16,24 +15,30 @@ const projects = [
     link: "https://apple-store-egs0.onrender.com",
   },
   {
+    name: "Parker Engineering",
+    description:
+      "A comprehensive engineering solutions website showcasing services, projects, and contact information.",
+    link: "https://parkersen-group.onrender.com",
+  },
+  {
+    name: "Uche's Professional Portfolio",
+    description:
+      "A portfolio for Customer Support, Data Entry Specialist, and Sales Executive roles.",
+    link: "https://uche-portfolio.onrender.com",
+  },
+  {
     name: "Fit Tracker",
     description:
       "A fitness tracking web app that helps you monitor workouts, calories, and goals.",
     link: "https://fittracker-3ykk.onrender.com",
   },
+ 
   {
     name: "Props Mastery",
     description:
       "A React project exploring props and reusable components with practical examples.",
     link: "https://props-4r3u.onrender.com",
   },
-  {
-    name: "Parker Engineering",
-    description:
-      "A comprehensive engineering solutions website showcasing services, projects, and contact information.",
-    link: "https://parkersen-group.onrender.com",
-  },
-  
 ];
 
 const Projects = () => {
