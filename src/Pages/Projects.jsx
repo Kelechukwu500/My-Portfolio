@@ -1,5 +1,5 @@
-// src/pages/Projects.jsx
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const projects = [
   {
@@ -32,7 +32,6 @@ const projects = [
       "A fitness tracking web app that helps you monitor workouts, calories, and goals.",
     link: "https://fittracker-3ykk.onrender.com",
   },
- 
   {
     name: "Props Mastery",
     description:
@@ -42,6 +41,12 @@ const projects = [
 ];
 
 const Projects = () => {
+  const cardsRefs = useRef([]);
+  const inViews = projects.map((_, i) => {
+    cardsRefs.current[i] = cardsRefs.current[i] || React.createRef();
+    return useInView(cardsRefs.current[i], { once: true, threshold: 0.3 });
+  });
+
   return (
     <div className="w-full py-16 px-4 sm:px-8 bg-gradient-to-r from-[#232526] to-[#3e9d26]">
       <h1 className="text-4xl font-bold text-center text-white">My Projects</h1>
@@ -51,8 +56,12 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
+            ref={cardsRefs.current[index]}
+            initial={{ opacity: 0, y: 40 }}
+            animate={inViews[index] ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300"
           >
             <h2 className="text-2xl font-semibold text-[#3e9d26] mb-2">
@@ -67,7 +76,7 @@ const Projects = () => {
             >
               View Project
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

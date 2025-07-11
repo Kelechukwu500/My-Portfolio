@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 
 const skills = [
   { name: "HTML5", icon: "🌐" },
@@ -66,24 +67,31 @@ const keyframes = `
 `;
 
 export default function AboutFeature() {
-  const [hovered, setHovered] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
+  const [hovered, setHovered] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, threshold: 0.1 });
+
+  useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section
+    <motion.section
+      ref={sectionRef}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8 }}
       className="w-full py-16 px-4 sm:px-8 bg-gradient-to-r from-[#232526] to-[#3e9d26]"
       style={{
         minHeight: "100vh",
         borderRadius: "24px",
         boxShadow: "0 4px 32px rgba(80, 0, 120, 0.09)",
-        width: "100vw", // Make section span the full viewport width
-        maxWidth: "100vw", // Remove maxWidth constraint
-        margin: 0, // Remove auto margin to allow full width
+        width: "100vw",
+        maxWidth: "100vw",
+        margin: 0,
         left: 0,
         position: "relative",
       }}
@@ -173,7 +181,7 @@ export default function AboutFeature() {
       ) : (
         <div style={skillGrid}>
           {skills.map((skill, idx) => (
-            <div
+            <motion.div
               key={skill.name}
               style={{
                 ...cardStyle,
@@ -181,6 +189,10 @@ export default function AboutFeature() {
               }}
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              viewport={{ once: true }}
             >
               <span
                 style={{
@@ -202,10 +214,10 @@ export default function AboutFeature() {
               >
                 {skill.name}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }

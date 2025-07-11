@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const cardStyle = {
   background: "rgba(255,255,255,0.97)",
@@ -62,9 +63,12 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.2 });
+
+  useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -80,11 +84,14 @@ export default function Contact() {
       setSubmitted(true);
       setLoading(false);
     }, 1200);
-    // Here you would typically send the form data to your email or backend
   };
 
   return (
-    <section
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 60 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="w-full py-16 px-4 sm:px-8"
       style={{
         minHeight: "100vh",
@@ -105,141 +112,163 @@ export default function Contact() {
       {loading ? (
         <span style={spinnerStyle}></span>
       ) : (
-      <div style={cardStyle}>
-        <h1
-          style={{
-            textAlign: "center",
-            fontWeight: 800,
-            fontSize: "2rem",
-            letterSpacing: "1px",
-            marginBottom: "1.2rem",
-            color: "#3e3a5d",
-          }}
-        >
-          Contact Me
-        </h1>
-        <p
-          style={{
-            color: "#4b4b6b",
-            textAlign: "center",
-            marginBottom: "1.5rem",
-          }}
-        >
-          Interested in working together or have a question? Fill out the form
-          below or reach me directly at{" "}
-          <a
-            href="mailto:your.email@example.com"
-            style={{ color: "#1976d2", fontWeight: 600 }}
-          >
-            Kelechukwu508@gmail.com
-          </a>
-          .
-        </p>
-        {loading ? (
-          <span style={spinnerStyle}></span>
-        ) : submitted ? (
-          <div
+        <div style={cardStyle}>
+          <h1
             style={{
-              color: "#388e3c",
-              marginTop: "1.5rem",
               textAlign: "center",
-              fontWeight: 600,
+              fontWeight: 800,
+              fontSize: "2rem",
+              letterSpacing: "1px",
+              marginBottom: "1.2rem",
+              color: "#3e3a5d",
             }}
           >
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{ verticalAlign: "middle", marginRight: 8 }}
-            >
-              <circle cx="12" cy="12" r="12" fill="#e0f7e9" />
-              <path
-                d="M7 13l3 3 7-7"
-                stroke="#3e9d26"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Thank you for reaching out! I will get back to you soon.
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} autoComplete="off">
-            <input
-              style={inputStyle}
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              style={inputStyle}
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              style={{ ...inputStyle, minHeight: 110, resize: "vertical" }}
-              name="message"
-              placeholder="Your Message"
-              value={form.message}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit" style={buttonStyle}>
-              Send Message
-            </button>
-          </form>
-        )}
-        <div
-          style={{ marginTop: "2.2rem", color: "#555", textAlign: "center" }}
-        >
-          <strong style={{ color: "#3e3a5d" }}>Connect:</strong>
-          <div
+            Contact Me
+          </h1>
+          <p
             style={{
-              marginTop: "0.7rem",
-              display: "flex",
-              justifyContent: "center",
-              gap: "1.2rem",
+              color: "#4b4b6b",
+              textAlign: "center",
+              marginBottom: "1.5rem",
             }}
           >
+            Interested in working together or have a question? Fill out the form
+            below or reach me directly at{" "}
             <a
-              href="https://github.com/Kelechukwu500"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ transition: "transform 0.2s" }}
+              href="mailto:your.email@example.com"
+              style={{ color: "#1976d2", fontWeight: 600 }}
             >
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                alt="GitHub"
-                width={32}
-                style={{ filter: "drop-shadow(0 2px 8px #e0e7ff)" }}
-              />
+              Kelechukwu508@gmail.com
             </a>
+            .
+          </p>
+
+          {submitted ? (
+            <div
+              style={{
+                color: "#388e3c",
+                marginTop: "1.5rem",
+                textAlign: "center",
+                fontWeight: 600,
+              }}
+            >
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                style={{ verticalAlign: "middle", marginRight: 8 }}
+              >
+                <circle cx="12" cy="12" r="12" fill="#e0f7e9" />
+                <path
+                  d="M7 13l3 3 7-7"
+                  stroke="#3e9d26"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Thank you for reaching out! I will get back to you soon.
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} autoComplete="off">
+              <input
+                style={inputStyle}
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                style={inputStyle}
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                style={{ ...inputStyle, minHeight: 110, resize: "vertical" }}
+                name="message"
+                placeholder="Your Message"
+                value={form.message}
+                onChange={handleChange}
+                required
+              />
+              <button type="submit" style={buttonStyle}>
+                Send Message
+              </button>
+            </form>
+          )}
+
+          {/* Download CV Button */}
+          <div style={{ marginTop: "2rem", textAlign: "center" }}>
             <a
-              href="https://linkedin.com/in/kelechukwu-aku-0736a2156"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ transition: "transform 0.2s" }}
+              href="/path-to-your-cv.pdf"
+              download
+              style={{
+                ...buttonStyle,
+                background: "#3e9d26",
+                display: "inline-block",
+              }}
             >
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-                alt="LinkedIn"
-                width={32}
-                style={{ filter: "drop-shadow(0 2px 8px #e0e7ff)" }}
-              />
+              Download My CV
             </a>
+            <p
+              style={{
+                marginTop: "0.5rem",
+                fontSize: "0.85rem",
+                color: "#666",
+              }}
+            >
+              * Placeholder – replace <code>/path-to-your-cv.pdf</code> with
+              your actual CV path
+            </p>
+          </div>
+
+          <div
+            style={{ marginTop: "2.2rem", color: "#555", textAlign: "center" }}
+          >
+            <strong style={{ color: "#3e3a5d" }}>Connect:</strong>
+            <div
+              style={{
+                marginTop: "0.7rem",
+                display: "flex",
+                justifyContent: "center",
+                gap: "1.2rem",
+              }}
+            >
+              <a
+                href="https://github.com/Kelechukwu500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  alt="GitHub"
+                  width={32}
+                  style={{ filter: "drop-shadow(0 2px 8px #e0e7ff)" }}
+                />
+              </a>
+              <a
+                href="https://linkedin.com/in/kelechukwu-aku-0736a2156"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                  alt="LinkedIn"
+                  width={32}
+                  style={{ filter: "drop-shadow(0 2px 8px #e0e7ff)" }}
+                />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       )}
-    </section>
-        
+    </motion.section>
   );
 }

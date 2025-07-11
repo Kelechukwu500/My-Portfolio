@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 
 const experiences = [
   {
     role: "Frontend Developer",
     company: "Gomycode",
-    period: "Jan 2025 - May 2025",
+    period: "Nov 2025 - May 2025",
     description:
-      "Developed and maintained responsive web applications using React and Redux. Collaborated with designers to create seamless user experiences and optimized performance across devices.",
+      "Developed and maintained responsive web applications using React and Redux. Collaborated with designers to create seamless user experiences and optimized performance across devices. Participated in sprint planning, peer code reviews, and UI/UX design refinement. Also contributed to bug fixes, refactoring legacy code, and implementing reusable components that boosted development speed.",
     icon: "💻",
   },
   {
     role: "Web Developer Intern",
     company: "Creative Web Studio",
-    period: "Jun 2024 - Dec 2024",
+    period: "Nov 2023 - Oct 2024",
     description:
-      "Assisted in building client websites with HTML, CSS, and JavaScript. Implemented UI enhancements and contributed to code reviews and testing.",
+      "Assisted in building client websites with HTML, CSS, and JavaScript. Implemented UI enhancements and contributed to code reviews and testing. Gained hands-on experience with responsive design, SEO optimization, and client feedback integration. Supported senior developers in deploying updates, troubleshooting layout issues, and maintaining CMS-based sites.",
     icon: "🛠️",
   },
   {
     role: "Freelance Data Analyst/Data Entry Specialist",
     company: "Freelance Projects",
-    period: "2022 - 2024",
+    period: "September 2021 - Oct 2023",
     description:
-      "Managed and analyzed large datasets using Excel, Tableu and Power BI to generate insights, track performance, and support decision-making. Ensured accurate data entry, cleaning, and reporting for sales, customer behavior, and inventory systems..",
+      "Managed and analyzed large datasets using Excel, Tableau and Power BI to generate insights, track performance, and support decision-making. Ensured accurate data entry, cleaning, and reporting for sales, customer behavior, and inventory systems. Worked with clients to deliver weekly and monthly dashboards, automate reporting processes, and identify anomalies in data trends for business optimization.",
     icon: "🚀",
   },
 ];
@@ -64,16 +65,22 @@ const keyframes = `
 `;
 
 export default function Experience() {
-  const [loading, setLoading] = React.useState(true);
-  const [hovered, setHovered] = React.useState(null);
+  const [loading, setLoading] = useState(true);
+  const [hovered, setHovered] = useState(null);
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, threshold: 0.2 });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section
+    <motion.section
+      ref={sectionRef}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8 }}
       className="w-full py-16 px-4 sm:px-8 bg-gradient-to-r from-[#232526] to-[#3e9d26]"
       style={{
         minHeight: "100vh",
@@ -99,13 +106,18 @@ export default function Experience() {
       >
         Experience
       </h1>
+
       {loading ? (
         <span style={spinnerStyle}></span>
       ) : (
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           {experiences.map((exp, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
               style={{
                 ...cardStyle,
                 ...(hovered === idx ? cardHoverStyle : {}),
@@ -160,10 +172,10 @@ export default function Experience() {
                   {exp.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }

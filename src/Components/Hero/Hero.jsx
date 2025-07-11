@@ -2,8 +2,6 @@ import React from "react";
 import Image from "../../assets/KC.jpg";
 import { Link } from "react-router-dom";
 
-
-
 const spinnerStyle = {
   width: "56px",
   height: "56px",
@@ -63,6 +61,7 @@ const Hero = () => {
                 </p>
               </div>
             </div>
+
             {/* Info Card */}
             <div className="w-full max-w-xl flex flex-col justify-center items-start gap-10">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 flex flex-col gap-6 w-full">
@@ -87,18 +86,20 @@ const Hero = () => {
                   Let's collaborate to bring your vision to life with clean
                   code, creative design, and a focus on performance.
                 </p>
+
                 <div className="flex items-center gap-6 mt-2">
-                  
-                  <Link to="/projects"
+                  <Link
+                    to="/projects"
                     className="px-8 py-3 bg-[#3e9d26] rounded-[10px] text-white text-base font-semibold font-['Roboto'] shadow-lg hover:bg-[#33801f] transition"
                   >
                     View Projects
                   </Link>
-                  <a
-                    href="#contact"
+
+                  <Link
+                    to="/hireme"
                     className="flex items-center gap-2 text-white text-base font-normal font-['Roboto'] hover:underline"
                   >
-                    Let's Connect
+                    Hire Me
                     <span className="relative">
                       <svg
                         width="22"
@@ -113,7 +114,7 @@ const Hero = () => {
                         ></path>
                       </svg>
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
