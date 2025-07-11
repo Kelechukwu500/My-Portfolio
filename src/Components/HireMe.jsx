@@ -1,7 +1,7 @@
-// src/components/HireMe.jsx
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaCode, FaRocket, FaLaptopCode } from "react-icons/fa";
+import { Link } from "react-router-dom"; // ✅ Import Link
 
 const HireMe = () => {
   const ref = useRef(null);
@@ -63,16 +63,15 @@ const HireMe = () => {
       </div>
 
       <div className="mt-12 flex justify-center">
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="bg-white text-green-700 font-semibold px-6 py-3 rounded-md shadow-md hover:bg-green-100 transition duration-300"
         >
           Let's Connect
-        </a>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default HireMe;
-
