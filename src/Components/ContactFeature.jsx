@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const cardStyle = {
   background: "rgba(255,255,255,0.97)",
@@ -77,13 +79,25 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    try {
+      await addDoc(collection(db, "messages"), {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        timestamp: serverTimestamp(),
+      });
       setSubmitted(true);
-      setLoading(false);
-    }, 1200);
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Something went wrong. Please try again.");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -135,7 +149,7 @@ export default function Contact() {
             Interested in working together or have a question? Fill out the form
             below or reach me directly at{" "}
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:Kelechukwu508@gmail.com"
               style={{ color: "#1976d2", fontWeight: 600 }}
             >
               Kelechukwu508@gmail.com
@@ -198,17 +212,19 @@ export default function Contact() {
                 onChange={handleChange}
                 required
               />
-              <button type="submit" style={buttonStyle}>
-                Send Message
-              </button>
+              {/* Centered Send Button */}
+              <div style={{ textAlign: "center" }}>
+                <button type="submit" style={buttonStyle}>
+                  Send Message
+                </button>
+              </div>
             </form>
           )}
 
-          {/* Download CV Button */}
           <div style={{ marginTop: "2rem", textAlign: "center" }}>
             <a
-              href="/path-to-your-cv.pdf"
-              download
+              href="/Kelechukwu-CV.pdf"
+              download="Kelechukwu-CV.pdf"
               style={{
                 ...buttonStyle,
                 background: "#3e9d26",
@@ -217,16 +233,6 @@ export default function Contact() {
             >
               Download My CV
             </a>
-            <p
-              style={{
-                marginTop: "0.5rem",
-                fontSize: "0.85rem",
-                color: "#666",
-              }}
-            >
-              * Placeholder – replace <code>/path-to-your-cv.pdf</code> with
-              your actual CV path
-            </p>
           </div>
 
           <div
