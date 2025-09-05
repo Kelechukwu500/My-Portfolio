@@ -38,6 +38,12 @@ const projects = [
       "A React project exploring props and reusable components with practical examples.",
     link: "https://props-4r3u.onrender.com",
   },
+  {
+    name: "Glammed By Luchi",
+    description:
+      "A beauty and glam website showcasing makeup artistry and client transformations.",
+    link: "https://glammedbyluchi.onrender.com/",
+  },
 ];
 
 const Projects = () => {
