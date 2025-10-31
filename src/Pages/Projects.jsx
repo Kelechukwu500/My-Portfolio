@@ -44,6 +44,12 @@ const projects = [
       "A beauty and glam website showcasing makeup artistry and client transformations.",
     link: "https://glammedbyluchi.onrender.com/",
   },
+  {
+    name: "WorkSprint",
+    description:
+      "A project management app to efficiently organize tasks, manage projects, and track team progress.",
+    link: "https://worksprint.onrender.com",
+  },
 ];
 
 const Projects = () => {
