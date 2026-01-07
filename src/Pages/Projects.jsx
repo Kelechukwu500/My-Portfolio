@@ -18,7 +18,7 @@ const projects = [
     name: "Parker Engineering",
     description:
       "A comprehensive engineering solutions website showcasing services, projects, and contact information.",
-    link: "https://parkersen-group.onrender.com",
+    link: "https://www.parkersengroup.com",
   },
   {
     name: "Uche's Professional Portfolio",
