@@ -29,7 +29,7 @@ import { FaReact, FaNodeJs, FaBootstrap } from "react-icons/fa";
 import { SiRedux, SiTailwindcss, SiFirebase, SiApollographql, SiMongodb } from "react-icons/si";
 import { FaPhoneAlt } from "react-icons/fa";
 import Station from "../../assets/Station.jpg"; // replace with your image
-import HeroImage from "../../assets/Heroimage.jpg";
+import Photo9 from "../../assets/Photo9.jpg";
 
 
 
@@ -685,7 +685,7 @@ const Hero = () => {
       className="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden shadow-lg mx-auto lg:ml-auto"
     >
       <img
-        src={HeroImage}
+        src={Photo9}
         alt="Hero"
         className="w-full h-full object-cover rounded-lg shadow-lg grayscale"
       />
