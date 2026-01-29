@@ -1,5 +1,10 @@
 import React from "react";
-import { FaWhatsapp, FaArrowUp } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaXTwitter,
+  FaArrowUp,
+} from "react-icons/fa6";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -7,35 +12,66 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-gray-100 text-gray-600 py-6 px-4">
-      <div className="flex flex-col md:flex-row justify-between items-center">
-        {/* Left: WhatsApp */}
-        <a
-          href="https://api.whatsapp.com/send?phone=2347039422404&text=Hello%2C%20I%20love%20your%20weather%20app!"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-green-500 hover:text-green-600 font-semibold mb-4 md:mb-0"
-        >
-          <FaWhatsapp size={20} />
-          WhatsApp
-        </a>
+    <footer className="w-full bg-white py-16 px-6 relative">
+      {/* Center Content */}
+      <div className="flex flex-col items-center justify-center text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-6">
+          Connect with Me
+        </h3>
 
-        {/* Center: Copyright */}
-        <div className="text-center mb-4 md:mb-0">
-          <span className="block text-sm font-medium">
-            © 2025. All Rights Reserved. Created by Kaycee Tech. 
-          </span>
+        {/* Social Icons */}
+        <div className="flex items-center gap-4">
+          <a
+            href="https://wa.me/2347039422404"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 hover:scale-105 transition"
+          >
+            <FaWhatsapp size={18} />
+          </a>
+
+          <a
+            href="https://x.com/Elongated_guyy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:scale-105 transition"
+          >
+            <FaXTwitter size={18} />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/kelechukwu-aku-0736a2156/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 hover:scale-105 transition"
+          >
+            <FaLinkedinIn size={18} />
+          </a>
+
+          <a
+            href="https://www.fiverr.com/kelechukwu500"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:scale-105 transition text-xs font-semibold"
+          >
+            fiverr.
+          </a>
         </div>
-
-        {/* Right: Back to Top */}
-        <button
-          onClick={scrollToTop}
-          className="flex items-center gap-1 text-blue-600 hover:text-blue-800 font-semibold"
-        >
-          <FaArrowUp size={16} />
-          Back to Top
-        </button>
       </div>
+
+      {/* Bottom Left */}
+      <div className="absolute bottom-6 left-6 text-sm text-gray-600">
+        © 2026 Kelechukwu Aku | Frontend Developer
+      </div>
+
+      {/* Bottom Right - Back to Top */}
+      <button
+        onClick={scrollToTop}
+        className="absolute bottom-6 right-6 flex items-center gap-1 text-sm font-medium text-blue-500 hover:text-gray-900 transition"
+      >
+        Back to Top
+        <FaArrowUp size={14} />
+      </button>
     </footer>
   );
 };
