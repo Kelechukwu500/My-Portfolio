@@ -4,10 +4,8 @@ import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer";
 
-import Experience from "./Pages/Experience";
-import Contact from "./Pages/Contact";
-import Projects from "./Pages/Projects"
-import HireMe from "./Components/HireMe";
+
+
 
 
 const App = () => {
@@ -19,10 +17,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
       
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/hireme" element={<HireMe />} />
+       
+       
       </Routes>
       <Footer />
     </>

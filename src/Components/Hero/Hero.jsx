@@ -28,7 +28,7 @@ import Photo8 from "../../assets/Photo8.jpg";
 import { FaReact, FaNodeJs, FaBootstrap } from "react-icons/fa";
 import { SiRedux, SiTailwindcss, SiFirebase, SiApollographql, SiMongodb } from "react-icons/si";
 import { FaPhoneAlt } from "react-icons/fa";
-import Station from "../../assets/station.jpg"; // replace with your image
+import Station from "../../assets/Station.jpg"; // replace with your image
 import HeroImage from "../../assets/heroimage.jpg";
 
 
