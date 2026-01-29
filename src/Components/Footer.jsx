@@ -67,7 +67,7 @@ const Footer = () => {
       {/* Bottom Right - Back to Top */}
       <button
         onClick={scrollToTop}
-        className="absolute bottom-6 right-6 flex items-center gap-1 text-sm font-medium text-blue-500 hover:text-gray-900 transition"
+        className="fixed bottom-24 right-6 sm:bottom-24 sm:right-6 flex items-center gap-1 text-sm font-medium text-blue-500 hover:text-gray-900 transition z-50"
       >
         Back to Top
         <FaArrowUp size={14} />

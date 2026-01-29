@@ -91,7 +91,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-[1100px] mx-auto flex flex-col items-center text-center py-24 gap-16">
+      <div className="relative z-10 max-w-[1100px] mx-auto flex flex-col items-center text-center py-24 gap-16 mt-12">
         {/* TEXT */}
         <div className="max-w-2xl">
           <h1 className="text-white text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight">
