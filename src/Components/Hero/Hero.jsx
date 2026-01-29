@@ -29,7 +29,7 @@ import { FaReact, FaNodeJs, FaBootstrap } from "react-icons/fa";
 import { SiRedux, SiTailwindcss, SiFirebase, SiApollographql, SiMongodb } from "react-icons/si";
 import { FaPhoneAlt } from "react-icons/fa";
 import Station from "../../assets/Station.jpg"; // replace with your image
-import HeroImage from "../../assets/heroimage.jpg";
+import HeroImage from "../../assets/Heroimage.jpg";
 
 
 
