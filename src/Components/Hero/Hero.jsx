@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CodeImage from "../../assets/codeimage.jpg";
+import CodeImage from "../../assets/CodeImage.jpg";
 import KC from "../../assets/KC.jpg";
 import { Link } from "react-router-dom";
 import { FaGithub, FaFacebookF, FaWhatsapp, FaLinkedin} from "react-icons/fa";
