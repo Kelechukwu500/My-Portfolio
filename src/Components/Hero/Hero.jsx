@@ -660,40 +660,49 @@ const Hero = () => {
           </div>
 
           {/* HERO CONTENT */}
-<div className="relative w-screen overflow-x-hidden">
-  <div className="w-full px-6 md:px-12 pt-40 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-    
-    {/* Left Text */}
-    <div className="text-left">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-        Build in your way <br />
-        but with my <span className="text-gray-500">Expertise.</span>
-      </h1>
+          <div className="relative w-screen overflow-x-hidden">
+            <div className="w-full px-6 md:px-12 pt-40 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+              {/* Left Text */}
+              <div className="text-left">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                  Build in your way <br />
+                  but with my <span className="text-gray-500">Expertise.</span>
+                </h1>
 
-      <p className="text-gray-500 text-base sm:text-lg max-w-xl">
-        Develop your front-end web project in your unique style. You're
-        just a click away.
-      </p>
-    </div>
+                <p className="text-gray-500 text-base sm:text-lg max-w-xl">
+                  Develop your front-end web project in your unique style.
+                  You're just a click away.
+                </p>
+              </div>
 
-    {/* Right Side Image */}
-    <motion.div
-      initial={{ x: 120, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.9, ease: "easeOut" }}
-      className="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden shadow-lg mx-auto lg:ml-auto"
-    >
-      <img
-        src={Photo9}
-        alt="Hero"
-        className="w-full h-full object-cover rounded-lg shadow-lg grayscale"
-      />
-    </motion.div>
+              {/* Right Side Image */}
+              <motion.div
+                initial={{ x: 120, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+                className="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden shadow-lg mx-auto lg:ml-auto"
+              >
+                <img
+                  src={Photo9}
+                  alt="Hero"
+                  className="w-full h-full object-cover rounded-lg shadow-lg grayscale"
+                />
+              </motion.div>
+            </div>
 
-  </div>
-</div>
-</section>
+            {/* DOWNLOAD CV BUTTON */}
+            <div className="w-full flex justify-center pb-24">
+              <a
+                href="/kelechukwu_aku_cv.pdf"
+                download
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-gray-700 transition-all duration-300"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );
