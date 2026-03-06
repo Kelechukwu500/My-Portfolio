@@ -293,7 +293,7 @@ const Hero = () => {
                   live: "https://fittracker-3ykk.onrender.com",
                   github: "https://github.com/Kelechukwu500",
                   stack: ["React", "Node.js", "Tailwind"],
-                  image: Photo5,
+                  image: Photo8,
                 },
                 {
                   title: "Props Mastery",
@@ -317,7 +317,7 @@ const Hero = () => {
                   live: "https://worksprint.onrender.com",
                   github: "https://github.com/Kelechukwu500",
                   stack: ["React", "MongoDB"],
-                  image: Photo8,
+                  image: Photo5,
                 },
               ].map((project, index) => (
                 <motion.div
