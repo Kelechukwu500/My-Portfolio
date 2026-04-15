@@ -21,6 +21,7 @@ import Photo5 from "../../assets/Photo5.jpg";
 import Photo6 from "../../assets/Photo6.jpg";
 import Photo7 from "../../assets/Photo7.jpg";
 import Photo8 from "../../assets/Photo8.jpg";
+import Parker from "../../assets/Parker.jpg";
 
 
 
@@ -255,6 +256,18 @@ const Hero = () => {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10"
             >
               {[
+
+                {
+                  title: "Charlie Parker's Foundation",
+                  desc: "A nonprofit organization dedicated to empowering communities through education, youth development, and humanitarian support initiatives.",
+                  live: "https://parker-foundation.onrender.com",
+                  github: "https://github.com/Kelechukwu500",
+                  stack: ["React", "Node.js", "Firebase", "Tailwind, API"],
+                  image: Parker,
+                },
+
+
+
                 {
                   title: "True Weather",
                   desc: "A dynamic weather forecasting app using APIs with detailed forecast and radar view.",
