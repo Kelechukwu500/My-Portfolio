@@ -262,7 +262,7 @@ const Hero = () => {
                   desc: "A nonprofit organization dedicated to empowering communities through education, youth development, and humanitarian support initiatives.",
                   live: "https://parker-foundation.onrender.com",
                   github: "https://github.com/Kelechukwu500",
-                  stack: ["React", "Node.js", "Firebase", "Tailwind, API"],
+                  stack: ["React", "Node.js", "Firebase", "Tailwind", "API"],
                   image: Parker,
                 },
 
