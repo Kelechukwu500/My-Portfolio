@@ -281,7 +281,7 @@ const Hero = () => {
                   desc: "A responsive e-commerce website mimicking the Apple Store with cart functionality.",
                   live: "https://apple-store-egs0.onrender.com",
                   github: "https://github.com/Kelechukwu500",
-                  stack: ["React", "Redux", "Bootstrap"],
+                  stack: ["React", "Redux", "Bootstrap", "MongoDB"],
                   image: Photo2,
                 },
                 {
