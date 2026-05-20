@@ -61,7 +61,7 @@ const Footer = () => {
 
       {/* Bottom Left */}
       <div className="absolute bottom-6 left-6 text-sm text-gray-600">
-        © 2026 Kelechukwu Aku | Frontend Developer
+        © 2026 Kaycee Tech | Frontend Developer
       </div>
 
       {/* Bottom Right - Back to Top */}

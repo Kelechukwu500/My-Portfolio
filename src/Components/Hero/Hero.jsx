@@ -22,6 +22,7 @@ import Photo6 from "../../assets/Photo6.jpg";
 import Photo7 from "../../assets/Photo7.jpg";
 import Photo8 from "../../assets/Photo8.jpg";
 import Parker from "../../assets/Parker.jpg";
+import medishareng from "../../assets/medishareng.jpg";
 
 
 
@@ -258,6 +259,22 @@ const Hero = () => {
               {[
 
                 {
+                  title: "MediShareNG",
+                  desc: "A modern telemedicine and digital healthcare platform built to improve healthcare accessibility in Nigeria through virtual consultations, provider management, e-pharmacy, laboratory integration, and real-time patient-doctor communication.",
+                  live: "https://medishareng.onrender.com",
+                  github: "https://github.com/Kelechukwu500",
+                  stack: [
+                    "React",
+                    "Firebase",
+                    "Tailwind CSS",
+                    "WebRTC",
+                    "Node.js",
+                    "API"
+                  ],
+                  image: medishareng,
+                },
+
+                {
                   title: "Charlie Parker's Foundation",
                   desc: "A nonprofit organization dedicated to empowering communities through education, youth development, and humanitarian support initiatives.",
                   live: "https://parker-foundation.onrender.com",
@@ -265,8 +282,6 @@ const Hero = () => {
                   stack: ["React", "Node.js", "Firebase", "Tailwind", "API"],
                   image: Parker,
                 },
-
-
 
                 {
                   title: "True Weather",
